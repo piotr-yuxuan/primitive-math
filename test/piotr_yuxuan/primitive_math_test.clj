@@ -1,8 +1,8 @@
-(ns clj-commons.primitive-math-test
+(ns piotr-yuxuan.primitive-math-test
   (:use
     clojure.test)
   (:require
-    [clj-commons.primitive-math :as p]))
+    [piotr-yuxuan.primitive-math :as p]))
 
 (set! *warn-on-reflection* true)
 

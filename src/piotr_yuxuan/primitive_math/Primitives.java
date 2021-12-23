@@ -1,5 +1,8 @@
-package clj_commons.primitive_math;
+package piotr_yuxuan.primitive_math;
 
+/**
+ * @author Zach Tellman <ztellman@gmail.com>
+ */
 public class Primitives {
 
     public static byte toByte(long n) {

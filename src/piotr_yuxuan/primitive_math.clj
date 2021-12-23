@@ -1,8 +1,9 @@
-(ns clj-commons.primitive-math
+(ns ^{:author "Zach Tellman <ztellman@gmail.com>"}
+  piotr-yuxuan.primitive-math
   (:refer-clojure
     :exclude [* + - / < > <= >= == rem bit-or bit-and bit-xor bit-not bit-shift-left bit-shift-right unsigned-bit-shift-right byte short int float long double inc dec zero? min max true? false?])
   (:import
-    [clj_commons.primitive_math Primitives]
+    [piotr_yuxuan.primitive_math Primitives]
     [java.nio ByteBuffer]))
 
 ;;;
@@ -39,28 +40,28 @@
           ([x# y#]
              (list '~fn x# y#))
           ([x# y# ~'& rest#]
-             (list 'clj_commons.primitive_math.Primitives/and (list '~name x# y#) (list* '~name y# rest#)))))))
+             (list 'piotr_yuxuan.primitive_math.Primitives/and (list '~name x# y#) (list* '~name y# rest#)))))))
 
-(variadic-proxy +             clj_commons.primitive_math.Primitives/add)
-(variadic-proxy -             clj_commons.primitive_math.Primitives/subtract "A primitive macro version of `-`" (fn [x] `(list 'clj_commons.primitive_math.Primitives/negate ~x)))
-(variadic-proxy *             clj_commons.primitive_math.Primitives/multiply)
-(variadic-proxy /             clj_commons.primitive_math.Primitives/divide)
-(variadic-proxy div           clj_commons.primitive_math.Primitives/divide)
-(variadic-proxy bit-and       clj_commons.primitive_math.Primitives/bitAnd)
-(variadic-proxy bit-or        clj_commons.primitive_math.Primitives/bitOr)
-(variadic-proxy bit-xor       clj_commons.primitive_math.Primitives/bitXor)
-(variadic-proxy bool-and      clj_commons.primitive_math.Primitives/and)
-(variadic-proxy bool-or       clj_commons.primitive_math.Primitives/or)
-(variadic-proxy bool-xor      clj_commons.primitive_math.Primitives/xor)
-(variadic-proxy min           clj_commons.primitive_math.Primitives/min)
-(variadic-proxy max           clj_commons.primitive_math.Primitives/max)
+(variadic-proxy +             piotr_yuxuan.primitive_math.Primitives/add)
+(variadic-proxy -             piotr_yuxuan.primitive_math.Primitives/subtract "A primitive macro version of `-`" (fn [x] `(list 'piotr_yuxuan.primitive_math.Primitives/negate ~x)))
+(variadic-proxy *             piotr_yuxuan.primitive_math.Primitives/multiply)
+(variadic-proxy /             piotr_yuxuan.primitive_math.Primitives/divide)
+(variadic-proxy div           piotr_yuxuan.primitive_math.Primitives/divide)
+(variadic-proxy bit-and       piotr_yuxuan.primitive_math.Primitives/bitAnd)
+(variadic-proxy bit-or        piotr_yuxuan.primitive_math.Primitives/bitOr)
+(variadic-proxy bit-xor       piotr_yuxuan.primitive_math.Primitives/bitXor)
+(variadic-proxy bool-and      piotr_yuxuan.primitive_math.Primitives/and)
+(variadic-proxy bool-or       piotr_yuxuan.primitive_math.Primitives/or)
+(variadic-proxy bool-xor      piotr_yuxuan.primitive_math.Primitives/xor)
+(variadic-proxy min           piotr_yuxuan.primitive_math.Primitives/min)
+(variadic-proxy max           piotr_yuxuan.primitive_math.Primitives/max)
 
-(variadic-predicate-proxy >   clj_commons.primitive_math.Primitives/gt)
-(variadic-predicate-proxy <   clj_commons.primitive_math.Primitives/lt)
-(variadic-predicate-proxy <=  clj_commons.primitive_math.Primitives/lte)
-(variadic-predicate-proxy >=  clj_commons.primitive_math.Primitives/gte)
-(variadic-predicate-proxy ==  clj_commons.primitive_math.Primitives/eq)
-(variadic-predicate-proxy not==  clj_commons.primitive_math.Primitives/neq "A primitive macro complement of `==`")
+(variadic-predicate-proxy >   piotr_yuxuan.primitive_math.Primitives/gt)
+(variadic-predicate-proxy <   piotr_yuxuan.primitive_math.Primitives/lt)
+(variadic-predicate-proxy <=  piotr_yuxuan.primitive_math.Primitives/lte)
+(variadic-predicate-proxy >=  piotr_yuxuan.primitive_math.Primitives/gte)
+(variadic-predicate-proxy ==  piotr_yuxuan.primitive_math.Primitives/eq)
+(variadic-predicate-proxy not==  piotr_yuxuan.primitive_math.Primitives/neq "A primitive macro complement of `==`")
 
 (defmacro inc
   "A primitive macro version of `inc`."
@@ -144,7 +145,7 @@
   '[* + - / < > <= >= == rem bit-or bit-and bit-xor bit-not bit-shift-left bit-shift-right byte short int float long double inc dec zero? true? false? min max])
 
 (defn- using-primitive-operators? []
-  (= #'clj-commons.primitive-math/+ (resolve '+)))
+  (= #'piotr-yuxuan.primitive-math/+ (resolve '+)))
 
 (defonce ^:private hijacked? (atom false))
 
@@ -190,25 +191,25 @@
 
 (defn byte
   "Truncates a number to a byte, will not check for overflow."
-  {:inline (fn [x] `(clj_commons.primitive_math.Primitives/toByte ~x))}
+  {:inline (fn [x] `(piotr_yuxuan.primitive_math.Primitives/toByte ~x))}
   ^long [^long x]
   (unchecked-long (Primitives/toByte x)))
 
 (defn short
   "Truncates a number to a short, will not check for overflow."
-  {:inline (fn [x] `(clj_commons.primitive_math.Primitives/toShort ~x))}
+  {:inline (fn [x] `(piotr_yuxuan.primitive_math.Primitives/toShort ~x))}
   ^long [^long x]
   (unchecked-long (Primitives/toShort x)))
 
 (defn int
   "Truncates a number to an int, will not check for overflow."
-  {:inline (fn [x] `(clj_commons.primitive_math.Primitives/toInteger ~x))}
+  {:inline (fn [x] `(piotr_yuxuan.primitive_math.Primitives/toInteger ~x))}
   ^long [^long x]
   (unchecked-long (Primitives/toInteger x)))
 
 (defn float
   "Truncates a number to a float, will not check for overflow."
-    {:inline (fn [x] `(clj_commons.primitive_math.Primitives/toFloat ~x))}
+    {:inline (fn [x] `(piotr_yuxuan.primitive_math.Primitives/toFloat ~x))}
   ^double [^double x]
   (unchecked-double (Primitives/toFloat x)))
 

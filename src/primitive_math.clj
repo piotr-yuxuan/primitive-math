@@ -1,4 +1,4 @@
-(ns ^{;; Single segment namespace is deprecated, please use clj-commons.primitive-math.
+(ns ^{;; Single segment namespace is deprecated, please use piotr-yuxuan.primitive-math.
       :deprecated true}
   primitive-math
   (:refer-clojure

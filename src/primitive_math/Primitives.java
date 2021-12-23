@@ -1,7 +1,7 @@
 package primitive_math;
 
 /**
- * Single segment namespace is deprecated, please use clj_commons.primitive_math.Primitives.
+ * Single segment namespace is deprecated, please use piotr_yuxuan.primitive_math.Primitives.
  */
 @Deprecated()
 public class Primitives {
