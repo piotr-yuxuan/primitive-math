@@ -1,4 +1,4 @@
-(defproject org.clj-commons/primitive-math "0.1.6"
+(defproject org.clj-commons/primitive-math "0.1.7"
   :description "predictable, primitive math"
   :license {:name "MIT License"
             :url "http://opensource.org/licenses/MIT"}
