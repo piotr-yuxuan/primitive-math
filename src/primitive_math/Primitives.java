@@ -1,5 +1,9 @@
 package primitive_math;
 
+/**
+ * Single segment namespace is deprecated, please use clj_commons.primitive_math.Primitives.
+ */
+@Deprecated()
 public class Primitives {
 
     public static byte toByte(long n) {

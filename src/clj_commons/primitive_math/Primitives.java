@@ -1,4 +1,4 @@
-package primitive_math;
+package clj_commons.primitive_math;
 
 public class Primitives {
 
